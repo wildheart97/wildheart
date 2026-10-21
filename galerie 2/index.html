@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>galerie</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M3 9a3 3 0 0 1 3-3h6l3 3h11a3 3 0 0 1 3 3v11a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z' fill='%23c9a29a'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="config.js"></script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="masthead">
+    <a class="brand" href="#/">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span class="brand-title" id="siteTitle"></span>
+    </a>
+    <p class="brand-sub" id="siteSub"></p>
+  </header>
+
+  <div class="bar">
+    <nav class="crumbs" id="crumbs" aria-label="Fil d'Ariane"></nav>
+
+    <div class="bar-tools">
+      <label class="search">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg>
+        <input id="search" type="search" placeholder="chercher un nom…" autocomplete="off">
+      </label>
+
+      <div class="seg" id="formatSeg" role="radiogroup" aria-label="Format copié">
+        <button data-f="url" role="radio">lien</button>
+        <button data-f="bbcode" role="radio">[img]</button>
+        <button data-f="html" role="radio">&lt;img&gt;</button>
+      </div>
+
+      <div class="seg seg-icons" id="sizeSeg" role="radiogroup" aria-label="Taille des vignettes">
+        <button data-s="s" role="radio" title="petit"><i class="dot s"></i></button>
+        <button data-s="m" role="radio" title="moyen"><i class="dot m"></i></button>
+        <button data-s="l" role="radio" title="grand"><i class="dot l"></i></button>
+      </div>
+
+      <button class="icon-btn" id="themeBtn" title="clair / sombre" aria-label="Changer de thème">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2a8 8 0 1 0 0 16z" class="fill"/><circle cx="10" cy="10" r="8"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <main id="main">
+    <div class="loading" id="loading"><span></span><span></span><span></span></div>
+  </main>
+
+  <footer class="foot">
+    <span id="siteFoot"></span>
+    <span class="foot-stats" id="stats"></span>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Aperçu">
+    <button class="lb-close icon-btn" id="lbClose" aria-label="Fermer">✕</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Précédente">←</button>
+    <figure class="lb-stage">
+      <img id="lbImg" alt="">
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Suivante">→</button>
+    <div class="lb-panel">
+      <div class="lb-info">
+        <span class="lb-name" id="lbName"></span>
+        <span class="lb-meta" id="lbMeta"></span>
+      </div>
+      <div class="lb-copy">
+        <input id="lbCode" readonly aria-label="Code à copier">
+        <button class="btn" id="lbCopy">copier</button>
+        <a class="btn ghost" id="lbOpen" target="_blank" rel="noopener">ouvrir ↗</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
